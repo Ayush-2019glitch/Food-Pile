@@ -13,7 +13,10 @@ import javafx.scene.control.TextField;
 
 import javafx.stage.Stage;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Scanner;
 
 public class LoginGUI {
 
@@ -25,9 +28,19 @@ public class LoginGUI {
     public PasswordField passwordField;
     public Button loginButton;
 
-    public void loginListener(ActionEvent actionEvent) {
+    public void loginListener(ActionEvent actionEvent) throws IOException {
+        String s=new String("");
+        File file=new File("C:\\Users\\tt\\AppData\\Roaming\\JetBrains\\IdeaIC2020.2\\scratches\\Password.txt");
+        try {
+            Scanner sc=new Scanner(file);
+            while(sc.hasNextLine()){
+                s=s+sc.nextLine();
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
         Parent root=null;
-        if(nameTextField.getText().equals("Admin")&&passwordField.getText().equals("King")){
+        if(nameTextField.getText().equals("Admin")&&passwordField.getText().equals(s)){
             Stage stage =(Stage) loginButton.getScene().getWindow();
             try{
                 root = FXMLLoader.load(getClass().getResource("FunctionalityGUI.fxml"));
