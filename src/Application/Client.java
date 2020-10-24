@@ -10,7 +10,7 @@ public class Client {
         Application.launch(LoginHandler.class,args);
     }
 
-    public static void loginCheckin(){
+    public static void logout(){
         Platform.exit();
     }
 }

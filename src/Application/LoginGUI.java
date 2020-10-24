@@ -28,7 +28,16 @@ public class LoginGUI {
     public void loginListener(ActionEvent actionEvent) {
         Parent root=null;
         if(nameTextField.getText().equals("Admin")&&passwordField.getText().equals("King")){
-            Client.loginCheckin();
+            Stage stage =(Stage) loginButton.getScene().getWindow();
+            try{
+                root = FXMLLoader.load(getClass().getResource("FunctionalityGUI.fxml"));
+            }
+            catch(IOException e){
+                e.printStackTrace();
+            }
+            stage.setTitle("Food Pile Application");
+            stage.setScene(new Scene(root,400,250));
+            stage.show();
         }
         else {
             Stage stage =(Stage) loginButton.getScene().getWindow();
