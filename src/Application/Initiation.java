@@ -3,7 +3,7 @@ package Application;
 import javafx.application.Application;
 import javafx.application.Platform;
 
-public class Client {
+public class Initiation {
 
     public static void main(String[] args) {
 
